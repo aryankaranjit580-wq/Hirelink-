@@ -64,11 +64,14 @@
 <body>
     <div class="login-container">
         <h2>login</h2>
-        <form id="LoginForm">
-            <input type="text" id="username" placeholder="Username" required>
-            <input type="password" id="password" placeholder="Password" required>
-            <div id="errorMessage" class="error"></div>
-            <button type="submit">Login</button>
+    <form id="LoginForm">
+    <input type="text" id="username" name="username" placeholder="Username" required>
+    <input type="password" id="password" name="password" placeholder="Password" required>
+    <div id="errorMessage" class="error"></div>
+    <button type="button" class="btn btn-primary" onclick="window.location.href='http://127.0.0.1:5500/Main/Deerwalk.html#'">Login</button>
+    </form>
+
+           
         </form>
         <div class="register-link">
             <a href="register.html">Don't have an account? Register here</a>
@@ -80,7 +83,7 @@
             event.preventDefault();
             const password = document.getElementById('password').value;
             const errorMessage = document.getElementById('errorMessage'); 
-            alert('Login successful!'); // Placeholder for submission
+            alert('Login successful!'); 
         });
     </script>
 </body>
