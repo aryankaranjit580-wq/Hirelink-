@@ -4,85 +4,141 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> 
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
-            background-color: #21dbbc;
+            background: linear-gradient(135deg, #21dbbc, #4CAF50); 
+            color: #333;
         }
         .login-container {
             background: white;
-            padding: 50px;
-            border-radius: 20px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            width: 350px;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
         }
         h2 {
-            text-align: center;
+            margin-bottom: 30px;
+            color: #4CAF50;
+            font-size: 2em;
+        }
+        .input-group {
+            position: relative;
             margin-bottom: 20px;
+        }
+        .input-group i {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #ccc;
         }
         input[type="text"], input[type="password"] {
             width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+            padding: 12px 40px; 
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        input[type="text"]:focus, input[type="password"]:focus {
+            border-color: #4CAF50;
+            outline: none;
         }
         button {
-            width: 107%;
-            padding: 10px;
-            background-color: #4CAF50;
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #4CAF50, #21dbbc);
             color: white;
             border: none;
-            border-radius: 4px;
+            border-radius: 8px;
+            font-size: 16px;
             cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
         }
         button:hover {
-            background-color: #45a049;
+            background: linear-gradient(135deg, #45a049, #1e9e8f);
+            transform: translateY(-2px);
+        }
+        button:active {
+            transform: translateY(0);
         }
         .error {
-            color: red;
-            font-size: 12px;
+            color: #e74c3c;
+            font-size: 14px;
+            margin-top: 10px;
         }
-        .register-link {
-            text-align: center;
-            margin-top: 15px;
+        .links {
+            margin-top: 20px;
         }
-        .register-link a {
+        .links a {
             color: #4CAF50;
             text-decoration: none;
+            font-size: 14px;
+            margin: 0 10px;
         }
-        .register-link a:hover {
+        .links a:hover {
             text-decoration: underline;
+        }
+        @media (max-width: 480px) {
+            .login-container {
+                padding: 30px 20px;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
         }
     </style>
 </head>
 <body>
     <div class="login-container">
-        <h2>login</h2>
-    <form id="LoginForm">
-    <input type="text" id="username" name="username" placeholder="Username" required>
-    <input type="password" id="password" name="password" placeholder="Password" required>
-    <div id="errorMessage" class="error"></div>
-    <button type="button" class="btn btn-primary" onclick="window.location.href='http://127.0.0.1:5500/Main/Deerwalk.html#'">Login</button>
-    </form>
-
-           
+        <h2><i class="fas fa-sign-in-alt"></i> Login</h2>
+        <form id="LoginForm" action="/login" method="POST"> 
+            <div class="input-group">
+                <i class="fas fa-user"></i>
+                <input type="text" id="username" name="username" placeholder="Username" required aria-label="Username">
+            </div>
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="password" name="password" placeholder="Password" required aria-label="Password">
+            </div>
+            <div id="errorMessage" class="error" role="alert"></div>
+            <button type="submit"><i class="fas fa-arrow-right"></i> Login</button>
         </form>
-        <div class="register-link">
+        <div class="links">
+            <a href="forgot-password.html">Forgot Password?</a>
             <a href="register.html">Don't have an account? Register here</a>
         </div>
     </div>
 
     <script>
         document.getElementById('LoginForm').addEventListener('submit', function(event) {
-            event.preventDefault();
+            const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
-            const errorMessage = document.getElementById('errorMessage'); 
+            const errorMessage = document.getElementById('errorMessage');
+            
+            errorMessage.textContent = ''; 
+            
+            if (username.length < 3) {
+                errorMessage.textContent = 'Username must be at least 3 characters.';
+                event.preventDefault();
+                return;
+            }
+            if (password.length < 6) {
+                errorMessage.textContent = 'Password must be at least 6 characters.';
+                event.preventDefault();
+                return;
+            }
+            
+        
             alert('Login successful!'); 
         });
     </script>
