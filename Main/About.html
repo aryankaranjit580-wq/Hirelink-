@@ -6,38 +6,97 @@
     <title>About Me - Freelancer</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background: linear-gradient(135deg, #f4f4f4, #e9ecef);
             color: #333;
+            line-height: 1.6;
         }
         header {
-            background-color: #007bff;
+            background: linear-gradient(135deg, #007bff, #0056b3);
             color: white;
             text-align: center;
-            padding: 50px 20px;
+            padding: 60px 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+            font-weight: 300;
+        }
+        header p {
+            margin: 10px 0 0;
+            font-size: 1.2em;
+            opacity: 0.9;
         }
         .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 30px;
             background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .container:hover {
+            transform: translateY(-5px);
         }
         h2 {
             color: #007bff;
+            border-bottom: 3px solid #007bff;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 2em;
+            font-weight: 400;
         }
         ul {
             list-style-type: disc;
             margin-left: 20px;
+            padding-left: 20px;
+        }
+        ul li {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        p {
+            margin-bottom: 20px;
+            font-size: 1.1em;
         }
         footer {
             text-align: center;
-            padding: 20px;
-            background-color: #007bff;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, #007bff, #0056b3);
             color: white;
+            font-size: 1em;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+        }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                padding: 40px 20px;
+            }
+            header h1 {
+                font-size: 2.5em;
+            }
+            .container {
+                margin: 20px;
+                padding: 20px;
+            }
+            h2 {
+                font-size: 1.8em;
+            }
+        }
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 2em;
+            }
+            .container {
+                padding: 15px;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
         }
     </style>
 </head>
@@ -50,7 +109,7 @@
     <div class="container">
         <h2>Who I Am </h2>
         <p>Hi, I'm [Your Name], a passionate freelancer specializing in [Your Specialty, e.g., web development, graphic design]. With [X years] of experience, I help clients bring their ideas to life through creative and efficient solutions.</p>
-        
+
         <h2>My Skills</h2>
         <ul>
             <li>Skill 1: </li>

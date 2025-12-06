@@ -4,61 +4,109 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">  
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
-            background-color:#21dbbc;
+            background: linear-gradient(135deg, #21dbbc, #4CAF50);  
+            color: #333;
         }
         .register-container {
             background: white;
-            padding: 50px;
-            border-radius: 20px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            width: 350px;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
         }
         h2 {
-            text-align: center;
+            margin-bottom: 30px;
+            color: #4CAF50;
+            font-size: 2em;
+        }
+        .input-group {
+            position: relative;
             margin-bottom: 20px;
         }
+        .input-group i {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #ccc;
+        }
         input[type="text"], input[type="email"], input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+            width: 75%;
+            padding: 12px 40px; 
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus {
+            border-color: #4CAF50;
+            outline: none;
         }
         button {
-            width: 107%;
-            padding: 10px;
-            background-color: #4CAF50;
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #4CAF50, #21dbbc);
             color: white;
             border: none;
-            border-radius: 4px;
+            border-radius: 8px;
+            font-size: 16px;
             cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
         }
         button:hover {
-            background-color: #45a049;
+            background: linear-gradient(135deg, #45a049, #1e9e8f);
+            transform: translateY(-2px);
+        }
+        button:active {
+            transform: translateY(0);
         }
         .error {
-            color: red;
-            font-size: 12px;
+            color: #e74c3c;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        @media (max-width: 480px) {
+            .register-container {
+                padding: 30px 20px;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
         }
     </style>
 </head>
 <body>
     <div class="register-container">
-        <h2>Register</h2>
+        <h2><i class="fas fa-user-plus"></i> Register</h2>
         <form id="registerForm">
-            <input type="text" id="username" placeholder="Username" required>
-            <input type="email" id="email" placeholder="Email" required>
-            <input type="password" id="password" placeholder="Password" required>
-            <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
-            <div id="errorMessage" class="error"></div>
+            <div class="input-group">
+                <i class="fas fa-user"></i>
+                <input type="text" id="username" placeholder="Username" required aria-label="Username">
+            </div>
+            <div class="input-group">
+                <i class="fas fa-envelope"></i>
+                <input type="email" id="email" placeholder="Email" required aria-label="Email">
+            </div>
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="password" placeholder="Password" required aria-label="Password">
+            </div>
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="confirmPassword" placeholder="Confirm Password" required aria-label="Confirm Password">
+            </div>
+            <div id="errorMessage" class="error" role="alert"></div>
             <button type="button" class="btn btn-primary" onclick="window.location.href='http://127.0.0.1:5500/Main/Deerwalk.html#'">Register</button>
         </form>
     </div>
@@ -76,7 +124,7 @@
             }
 
            
-            alert('Registration successful!'); // Placeholder for  submission
+            alert('Registration successful!');
         });
     </script>
 </body>
