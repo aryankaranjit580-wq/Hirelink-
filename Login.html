@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #21dbbc;
+        }
+        .login-container {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 350px;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            width: 107%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+        .register-link {
+            text-align: center;
+            margin-top: 15px;
+        }
+        .register-link a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        .register-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>login</h2>
+        <form id="LoginForm">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <div id="errorMessage" class="error"></div>
+            <button type="submit">Login</button>
+        </form>
+        <div class="register-link">
+            <a href="register.html">Don't have an account? Register here</a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('LoginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('errorMessage'); 
+            alert('Login successful!'); // Placeholder for submission
+        });
+    </script>
+</body>
+</html>
